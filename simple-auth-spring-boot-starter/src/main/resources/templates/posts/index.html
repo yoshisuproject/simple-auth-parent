@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="#{simpleauth.posts.index.title}">Posts - Index</title>
+    <link rel="stylesheet" th:href="@{/css/simple-auth.css}" />
+  </head>
+  <body class="container">
+    <h1 th:text="#{simpleauth.posts.index.heading}">Posts Index</h1>
+
+    <div class="card">
+      <p>
+        <strong th:text="#{simpleauth.posts.index.authStatus}">Authentication Status:</strong>
+        <span th:if="${authenticated}" class="badge badge-success" th:text="#{simpleauth.posts.index.authenticated}">
+          Authenticated
+        </span>
+        <span
+          th:unless="${authenticated}"
+          class="badge badge-warning"
+          th:text="#{simpleauth.posts.index.notAuthenticated}"
+        >
+          Not Authenticated
+        </span>
+      </p>
+      <p th:if="${authenticated}">
+        <strong th:text="#{simpleauth.posts.index.user}">User:</strong>
+        <span th:text="${user.emailAddress}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.posts.index.accessLevel}">Access Level:</strong>
+        <span th:text="${message}"></span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 th:text="#{simpleauth.posts.index.annotation.heading}">Annotation Demo</h3>
+      <p th:utext="#{simpleauth.posts.index.annotation.text}">
+        This page uses
+        <code>@AllowUnauthenticatedAccess</code>
+        annotation.
+      </p>
+      <p th:text="#{simpleauth.posts.index.annotation.description}">
+        You can access this page whether you're logged in or not!
+      </p>
+    </div>
+
+    <div class="nav">
+      <a th:href="@{/}" th:text="#{simpleauth.common.home}">Home</a>
+      <a th:href="@{/posts/1}" th:text="#{simpleauth.posts.index.viewPost(1)}">View Post #1 (Auth Required)</a>
+      <a th:href="@{/posts/new}" th:text="#{simpleauth.posts.index.newPost}">New Post (Auth Required)</a>
+      <a th:if="${!authenticated}" th:href="@{/session/new}" th:text="#{simpleauth.posts.index.login}">Login</a>
+      <a th:if="${authenticated}" th:href="@{/session/destroy}" th:text="#{simpleauth.posts.index.logout}">Logout</a>
+    </div>
+  </body>
+</html>

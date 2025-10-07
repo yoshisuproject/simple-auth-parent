@@ -1,0 +1,76 @@
+{
+  "properties": [
+    {
+      "name": "simple-auth.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable Spring Simple Auth.",
+      "defaultValue": true
+    },
+    {
+      "name": "simple-auth.session.max-age",
+      "type": "java.lang.Integer",
+      "description": "Session max age in seconds (default 30 days).",
+      "defaultValue": 2592000
+    },
+    {
+      "name": "simple-auth.session.cookie-name",
+      "type": "java.lang.String",
+      "description": "Session cookie name.",
+      "defaultValue": "session_token"
+    },
+    {
+      "name": "simple-auth.urls.login-url",
+      "type": "java.lang.String",
+      "description": "Login page URL.",
+      "defaultValue": "/session/new"
+    },
+    {
+      "name": "simple-auth.urls.logout-url",
+      "type": "java.lang.String",
+      "description": "Logout URL.",
+      "defaultValue": "/session/destroy"
+    },
+    {
+      "name": "simple-auth.urls.home-url",
+      "type": "java.lang.String",
+      "description": "Home URL (redirect after login).",
+      "defaultValue": "/"
+    },
+    {
+      "name": "simple-auth.urls.excluded-patterns",
+      "type": "java.lang.String[]",
+      "description": "URL patterns to exclude from authentication.",
+      "defaultValue": [
+        "/session/new",
+        "/session",
+        "/passwords/**",
+        "/h2-console/**",
+        "/error"
+      ]
+    },
+    {
+      "name": "simple-auth.mail.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable email functionality.",
+      "defaultValue": true
+    },
+    {
+      "name": "simple-auth.mail.from",
+      "type": "java.lang.String",
+      "description": "From email address.",
+      "defaultValue": "noreply@example.com"
+    },
+    {
+      "name": "simple-auth.password-reset.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable password reset functionality.",
+      "defaultValue": true
+    },
+    {
+      "name": "simple-auth.password-reset.token-expiry",
+      "type": "java.lang.Integer",
+      "description": "Password reset token expiry in seconds (default 15 minutes).",
+      "defaultValue": 900
+    }
+  ]
+}

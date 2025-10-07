@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="#{simpleauth.email.reset.title}">Reset your password</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        margin: 20px 0;
+      }
+      .footer {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 th:text="#{simpleauth.email.reset.title}">Reset your password</h2>
+
+      <p th:text="#{simpleauth.email.reset.greeting}">Hi there,</p>
+
+      <p th:text="#{simpleauth.email.reset.body}">
+        Someone requested a password reset for your account. If this was you, click the button below to set a new
+        password:
+      </p>
+
+      <a th:href="${resetUrl}" class="button" th:text="#{simpleauth.email.reset.button}">Reset your password</a>
+
+      <p th:text="#{simpleauth.email.reset.linkText}">Or copy and paste this link into your browser:</p>
+      <p><a th:href="${resetUrl}" th:text="${resetUrl}"></a></p>
+
+      <p th:text="#{simpleauth.email.reset.expires}">This link will expire in 1 hour.</p>
+
+      <p th:text="#{simpleauth.email.reset.ignore}">
+        If you didn't request a password reset, you can safely ignore this email.
+      </p>
+
+      <div class="footer">
+        <p th:text="#{simpleauth.email.reset.footer}">This is an automated email. Please do not reply.</p>
+      </div>
+    </div>
+  </body>
+</html>

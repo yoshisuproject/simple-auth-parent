@@ -1,0 +1,2 @@
+com.yoshisuproject.simpleauth.autoconfigure.SimpleAuthAutoConfiguration
+com.yoshisuproject.simpleauth.autoconfigure.FlywayConfiguration
