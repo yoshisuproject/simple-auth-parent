@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title th:text="#{simpleauth.posts.show.title}">Post Detail</title>
+    <link rel="stylesheet" th:href="@{/css/simple-auth.css}" />
+  </head>
+  <body class="container">
+    <h1 th:text="#{simpleauth.posts.show.heading}">Post Detail</h1>
+
+    <div class="card">
+      <p>
+        <strong th:text="#{simpleauth.posts.show.postId}">Post ID:</strong>
+        <span th:text="${postId}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.posts.show.viewingAs}">Viewing as:</strong>
+        <span th:text="${user.emailAddress}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.posts.show.accessLevel}">Access Level:</strong>
+        <span class="badge" th:text="#{simpleauth.posts.show.authenticated}">Authenticated</span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.posts.show.message}">Message:</strong>
+        <span th:text="${message}"></span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 th:text="#{simpleauth.posts.show.annotation.heading}">Annotation Demo</h3>
+      <p th:utext="#{simpleauth.posts.show.annotation.text}">
+        This page inherits
+        <code>@RequireAuthentication</code>
+        from the controller class.
+      </p>
+      <p th:text="#{simpleauth.posts.show.annotation.description}">You can only access this page when logged in!</p>
+    </div>
+
+    <div class="nav">
+      <a th:href="@{/}" th:text="#{simpleauth.common.home}">Home</a>
+      <a th:href="@{/posts}" th:text="#{simpleauth.posts.index.allPosts}">All Posts</a>
+      <a th:href="@{/posts/new}" th:text="#{simpleauth.posts.index.newPost}">New Post</a>
+      <a th:href="@{/session/destroy}" th:text="#{simpleauth.common.signOut}">Logout</a>
+    </div>
+  </body>
+</html>

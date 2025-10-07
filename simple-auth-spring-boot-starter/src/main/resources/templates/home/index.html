@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title th:text="#{simpleauth.home.title}">Home</title>
+    <link rel="stylesheet" th:href="@{/css/simple-auth.css}" />
+  </head>
+  <body class="container">
+    <div class="header">
+      <div>
+        <h1 th:text="#{simpleauth.home.welcome}">Welcome!</h1>
+        <div class="user-info" th:text="#{simpleauth.home.signedInAs(${user.emailAddress})}">Signed in as: email</div>
+      </div>
+      <a th:href="@{/session/destroy}" class="logout-btn" th:text="#{simpleauth.common.signOut}">Sign out</a>
+    </div>
+
+    <div class="card">
+      <h3 th:text="#{simpleauth.home.authSuccess.heading}">Authentication Successful</h3>
+      <p th:text="#{simpleauth.home.authSuccess.text}">You are now signed in and can access protected resources.</p>
+    </div>
+
+    <div class="card">
+      <h3 th:text="#{simpleauth.home.sessionInfo.heading}">Session Information</h3>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.userId}">User ID:</strong>
+        <span th:text="${user.id}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.email}">Email:</strong>
+        <span th:text="${user.emailAddress}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.sessionToken}">Session Token:</strong>
+        <code th:text="${session.token}"></code>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.ipAddress}">IP Address:</strong>
+        <span th:text="${session.ipAddress}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.userAgent}">User Agent:</strong>
+        <span th:text="${session.userAgent}"></span>
+      </p>
+      <p>
+        <strong th:text="#{simpleauth.home.sessionInfo.createdAt}">Created At:</strong>
+        <span th:text="${session.createdAt}"></span>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 th:text="#{simpleauth.home.about.heading}">About This Application</h3>
+      <p th:utext="#{simpleauth.home.about.description}">
+        This is a simple authentication system built with Spring Boot...
+      </p>
+      <p th:text="#{simpleauth.home.about.features}">Features:</p>
+      <ul>
+        <li th:text="#{simpleauth.home.about.feature1}">Session-based authentication (database-backed)</li>
+        <li th:text="#{simpleauth.home.about.feature2}">Password reset via email</li>
+        <li th:text="#{simpleauth.home.about.feature3}">Device tracking (IP address and user agent)</li>
+        <li th:text="#{simpleauth.home.about.feature4}">
+          No Spring Security dependency - pure hand-crafted authentication
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
